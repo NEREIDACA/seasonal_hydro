@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Previsió de conques</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <style>
+    #map { height: 600px; width: 100%; }
+  </style>
+</head>
+<body>
+  <h1>Tauler de control de previsió de conques</h1>
+  <p>Seleccioneu un punt de conca per veure la previsió:</p>
+
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // Initialize the map
+    var map = L.map('map').setView([41.9, 2.6], 9); // Center on Catalunya
+
+    // Add basemap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Example points with lat/lon and links
+    var points = [
+      {name: "Discharge Ripoll", coords: [42.199, 2.191], url: "static/Q_ter_ripoll.html"},
+      {name: "Discharge Roda de Ter", coords: [41.980, 2.308], url: "static/Q_ter_sau.html"},
+      {name: "Volume Sistema Ter", coords: [41.979, 2.40], url: "static/V_ter_all.html"},
+      {name: "Discharge Gola del Ter", coords: [42.042, 3.127], url: "static/Q_ter_gola.html"},
+      {name: "Example Costa Ter", coords: [42.002, 3.2021], url: "static/Ter_Costa_Ter.html"},
+      {name: "Discharge Sant Celoni", coords: [41.692, 2.509], url: "static/Q_tordera_santceloni.html"},
+      {name: "Discharge Fogars", coords: [41.721, 2.705], url: "static/Q_tordera_fogars.html"},
+      {name: "Example Costa Tordera", coords: [41.648, 2.776], url: "static/Tordera_Costa_Tordera.html"}
+    ];
+
+    // Add markers
+    points.forEach(p => {
+      L.marker(p.coords)
+        .addTo(map)
+        .bindPopup('<b>' + p.name + '</b><br><a href="'+p.url+'">Obre la previsió</a>');
+    });
+  </script>
+</body>
+</html>
+
