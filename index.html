@@ -40,7 +40,11 @@
     points.forEach(p => {
       L.marker(p.coords)
         .addTo(map)
-        .bindPopup('<b>' + p.name + '</b><br><a href="'+p.url+'">Obre la previsió</a>');
+        .bindPopup(
+  '<b>' + p.name + '</b><br>' +
+  '<a href="' + p.url + '" target="_blank" rel="noopener noreferrer">Obre la previsió</a>'
+);
+
     });
   </script>
 </body>
