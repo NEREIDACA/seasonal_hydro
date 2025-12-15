@@ -1,32 +1,16 @@
 <!DOCTYPE html>
-<html lang="ca"> <!-- Changed to Catalan for better semantics -->
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Previsió de conques</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  
-  <!-- Font Awesome for the location icon -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
   <style>
-    #map { 
-      height: 600px; 
-      width: 100%; 
-    }
-    .location-icon {
-      color: #1E90FF; /* DodgerBlue */
-      margin: 0 4px;
-    }
+    #map { height: 600px; width: 100%; }
   </style>
 </head>
 <body>
   <h1>Tauler de control de previsió de conques</h1>
-  
-  <!-- Updated paragraph with blue location icon -->
-  <p>Seleccioneu un punt de conca 
-    <i class="fas fa-map-marker-alt location-icon"></i>
-    per veure la previsió:
-  </p>
+  <p>Seleccioneu un punt de conca per veure la previsió:</p>
 
   <div id="map"></div>
 
@@ -57,10 +41,12 @@
       L.marker(p.coords)
         .addTo(map)
         .bindPopup(
-          '<b>' + p.name + '</b><br>' +
-          '<a href="' + p.url + '" target="_blank" rel="noopener noreferrer">Obre la previsió</a>'
-        );
+  '<b>' + p.name + '</b><br>' +
+  '<a href="' + p.url + '" target="_blank" rel="noopener noreferrer">Obre la previsió</a>'
+);
+
     });
   </script>
 </body>
 </html>
+
